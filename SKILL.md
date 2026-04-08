@@ -1,5 +1,5 @@
 ---
-name: yak-soul-skills
+name: cubxxw-skills
 description: "Root loader for a personal thinking OS — load this when the user wants a thinking partner (not just a task executor), or when conversation touches identity, meaning, product philosophy, cross-cultural analysis, relationships, or life design. This file bootstraps the base persona and routes to child skills on demand."
 version: 1.0.0
 author: "cubxxw"

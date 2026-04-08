@@ -9,160 +9,136 @@
 [![License: MIT-K](https://img.shields.io/badge/License-MIT--K-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](manifest.json)
 [![Skills](https://img.shields.io/badge/skills-12-orange.svg)](manifest.json)
+[![Compatible](https://img.shields.io/badge/compatible-Claude%20Code-purple.svg)](#使用方式)
 
 </div>
 
-从 13 个月、3580+ 条结构化自我观察中提炼出的个人思维操作系统。每个 Skill 都是一个独立可加载的 `SKILL.md`，教授特定的方法论、框架或判断模式。
+从 13 个月、3580+ 条结构化自我观察中提炼出的个人思维操作系统。每个 Skill 都是独立可加载的 `SKILL.md`，教授特定的方法论、框架或判断模式。
 
-## 快速开始
+---
 
-```bash
-# 安装
-git clone https://github.com/cubxxw/cubxxw-skills ~/.cubxxw-skills
-
-# 复制某个技能内容到剪贴板（macOS）
-cat ~/.cubxxw-skills/framework-lean_product/SKILL.md | pbcopy
-
-# 列出所有可用技能
-cat ~/.cubxxw-skills/manifest.json | jq '.skills[].name'
-
-# 一次性加载一个预设（以 builder 为例）
-manifest=~/.cubxxw-skills/manifest.json
-jq -r '.load_presets.builder.skills[]' $manifest | while read skill; do
-  path=$(jq -r --arg s "$skill" '.skills[] | select(.name==$s) | .path' $manifest)
-  cat ~/.cubxxw-skills/$path
-done
-```
-
-## 使用方式
-
-### Claude Code
-
-克隆仓库到 Claude Code 的技能目录：
+## 安装
 
 ```bash
 git clone https://github.com/cubxxw/cubxxw-skills ~/.claude/skills/cubxxw-skills
 ```
 
-**在对话中引用：**
-```
-@~/.claude/skills/cubxxw-skills/framework-lean_product/SKILL.md
-```
-
-**在 `CLAUDE.md` 中配置自动加载**（对项目下所有会话生效）：
-```markdown
-@~/.claude/skills/cubxxw-skills/framework-ai_native_workflow/SKILL.md
-@~/.claude/skills/cubxxw-skills/meta-soul/SKILL.md
-```
-
-**通过命令行加载预设：**
-```bash
-# 将 builder 预设的所有技能内容输出到 stdout
-manifest=~/.claude/skills/cubxxw-skills/manifest.json
-jq -r '.load_presets.builder.skills[]' $manifest | while read skill; do
-  path=$(jq -r --arg s "$skill" '.skills[] | select(.name==$s) | .path' $manifest)
-  cat ~/.claude/skills/cubxxw-skills/$path
-done
-```
+重启 Claude Code 后，Skill 会自动注册为 `/cubxxw-skills`。
 
 ---
 
-### OpenClaw
+## 使用方式
 
-OpenClaw 原生支持 `SKILL.md` 格式，在配置文件中加入：
+在任意 Claude Code 对话中输入 `/cubxxw-skills`，即可激活完整的思维操作系统 — 它会加载基础人格，并根据对话内容动态加载对应子技能。
 
-```yaml
-# ~/.openclaw/config.yaml
-skills:
-  - path: ~/.openclaw/skills/cubxxw-skills
-    auto_load:
-      - meta-soul
-      - ai_native_workflow
+```
+/cubxxw-skills
 ```
 
-**命令行操作：**
-```bash
-# 加载单个技能
-/skill load framework-lean_product
-
-# 加载预设
-/skill preset builder
-/skill preset philosopher
-
-# 查看已加载的技能
-/skill list
-```
-
-**安装：**
-```bash
-mkdir -p ~/.openclaw/skills
-git clone https://github.com/cubxxw/cubxxw-skills ~/.openclaw/skills/cubxxw-skills
-```
+就这一条命令，不需要任何参数。Claude 会进入思维伙伴模式，随着对话推进自动调用相关框架。
 
 ---
 
-### Cursor / Windsurf / Cline
+## 典型使用场景
 
-**方式 A — 粘贴到上下文窗口：**
-```bash
-# 复制技能内容到剪贴板（macOS）
-cat ~/.cubxxw-skills/framework-lean_product/SKILL.md | pbcopy
-# 然后粘贴到 AI 对话窗口
+以下是 `/cubxxw-skills` 最能改变输出质量的对话类型：
+
+### 1. 产品验证 — "这个东西值得做吗？"
+
+```
+/cubxxw-skills
+
+我有个想法，做一个帮助独立开发者管理 Claude 长会话上下文窗口的工具。
+值得做吗？谁会为它付费？
 ```
 
-**方式 B — 写入规则文件：**
-```bash
-# 追加某个技能到 .cursorrules
-cat ~/.cubxxw-skills/framework-ai_native_workflow/SKILL.md >> .cursorrules
-
-# 或者用预设生成完整的规则文件
-manifest=~/.cubxxw-skills/manifest.json
-jq -r '.load_presets.builder.skills[]' $manifest | while read skill; do
-  path=$(jq -r --arg s "$skill" '.skills[] | select(.name==$s) | .path' $manifest)
-  cat ~/.cubxxw-skills/$path
-done > .cursorrules
-```
+激活：`lean_product` + `ai_native_workflow`。进行场景验证，找到在动手之前测试需求的最小行动单元。
 
 ---
 
-### 通用 AI 助手（ChatGPT、Gemini 等）
+### 2. 身份与职业 — "我到底想要什么？"
 
-将任意 `SKILL.md` 的完整内容粘贴为系统提示或对话开头，即可激活对应的思维框架。
-
-```bash
-cat ~/.cubxxw-skills/meta-soul/SKILL.md
-# 复制输出内容，粘贴给任意 AI 助手
 ```
+/cubxxw-skills
+
+我做后端基础设施六年了。AI 正在吞噬我的技术栈。我不知道该转产品、
+深入 AI 系统方向，还是完全换个赛道。我感觉卡住了。
+```
+
+激活：`self_modeling` + `meaning_architecture`。区分刺激性欲望（追新求变）和生成性欲望（真正对你有复利的事）。不给你答案 — 而是帮你把地形看清楚，然后由你选择。
 
 ---
 
-### 编程方式 / API 集成
+### 3. 关系摩擦 — "为什么这种情况反复出现？"
 
-```bash
-# Shell：将技能内容存入变量
-SKILL=$(cat ~/.cubxxw-skills/framework-lean_product/SKILL.md)
+```
+/cubxxw-skills
 
-# 传入任意 LLM CLI 工具
-echo "$SKILL" | llm -s "你是一位掌握以下框架的专家：" -
+每次我试图跟伴侣划定边界，最后都变成另一件事的争吵。
+原来的问题从来没被解决过。到底发生了什么？
 ```
 
-```python
-import json, pathlib
+激活：`relationship_boundaries` + `authenticity_performance`。看模式背后的模式 — 哪种社会表演正在被防御，哪个真实需求没有被说出来。
 
-root = pathlib.Path.home() / ".cubxxw-skills"
-manifest = json.loads((root / "manifest.json").read_text())
+---
 
-def load_preset(name: str) -> str:
-    """加载预设，返回合并后的 prompt 字符串"""
-    skills = manifest["load_presets"][name]["skills"]
-    parts = []
-    for skill_name in skills:
-        skill = next(s for s in manifest["skills"] if s["name"] == skill_name)
-        parts.append((root / skill["path"]).read_text())
-    return "\n\n---\n\n".join(parts)
+### 4. 居住与工作设计 — "我该把根据地放在哪里？"
 
-# 作为系统提示使用
-system_prompt = load_preset("builder")
+```
+/cubxxw-skills
+
+我在考虑去日本待三个月，或者留在深圳。我远程工作，
+在乎步行友好性、城市密度和能独处思考的时间。怎么做决定？
+```
+
+激活：`nomadic_cognition` + `comparative_culture`。环境-思维映射 — 分析每个城市的基础设施如何塑造认知状态，而不只是生活方式偏好的对比。
+
+---
+
+### 5. 知识系统 — "我的笔记是个坟墓"
+
+```
+/cubxxw-skills
+
+我有四年的 Obsidian 笔记。需要用的时候什么都找不到。
+记下来的东西从来不回头看。问题出在系统上还是习惯上？
+```
+
+激活：`cognitive_evolution` + `systematization_experience`。诊断你是在建知识系统还是在建防御机制。提出最小可用检索方案，而不是又一次重新整理。
+
+---
+
+### 6. 直接加载某个具体框架
+
+如果你已经知道需要哪个视角，在激活后直接说：
+
+```
+/cubxxw-skills
+
+加载 freedom_order。我想弄清楚早晨要加多少结构，
+才不会把自发性全部杀死。
+```
+
+可用的 skills：`meta-soul`、`self_modeling`、`lean_product`、`ai_native_workflow`、`meaning_architecture`、`nomadic_cognition`、`comparative_culture`、`cognitive_evolution`、`authenticity_performance`、`freedom_order`、`relationship_boundaries`、`systematization_experience`
+
+---
+
+## 预设
+
+对于有明确焦点的对话，可以请求加载预设组合：
+
+| 预设 | 包含技能 | 适合场景 |
+|------|----------|----------|
+| `builder` | lean_product · ai_native_workflow · systematization_experience | 做产品、出货、避免过度工程化 |
+| `philosopher` | meta-soul · self_modeling · meaning_architecture · authenticity_performance | 身份工作、意义建构、存在主义问题 |
+| `traveler` | nomadic_cognition · comparative_culture · freedom_order | 搬家、远程工作设计、跨文化分析 |
+| `relationship` | relationship_boundaries · authenticity_performance · self_modeling | 亲密关系、社交动力学、边界协商 |
+| `knowledge_engineer` | cognitive_evolution · self_modeling · systematization_experience | 个人知识系统、范式追踪 |
+
+```
+/cubxxw-skills
+
+加载 philosopher 预设。我想想清楚，为什么我每次在项目快做完的时候就放弃了。
 ```
 
 ---
@@ -172,7 +148,7 @@ system_prompt = load_preset("builder")
 ### Meta（元层）
 | 技能 | 描述 |
 |------|------|
-| [meta-soul](meta-soul/SKILL.md) | 完整人格加载器 — 系统性感知现实主义思维伙伴 |
+| [meta-soul](meta-soul/SKILL.md) | 基础人格 — 逻辑核与感性核双核并行，三层现实模型 |
 
 ### Frameworks（框架）
 | 技能 | 描述 |
@@ -193,15 +169,7 @@ system_prompt = load_preset("builder")
 | [relationship_boundaries](tension-relationship_boundaries/SKILL.md) | 亲密关系中的动态边界协商 |
 | [systematization_experience](tension-systematization_experience/SKILL.md) | 何时系统化变成了防御机制 |
 
-## 预设
-
-| 预设 | 包含技能 |
-|------|----------|
-| `builder` | lean_product, ai_native_workflow, systematization_experience |
-| `philosopher` | meta-soul, self_modeling, meaning_architecture, authenticity_performance |
-| `traveler` | nomadic_cognition, comparative_culture, freedom_order |
-| `relationship` | relationship_boundaries, authenticity_performance, self_modeling |
-| `knowledge_engineer` | cognitive_evolution, self_modeling, systematization_experience |
+---
 
 ## 设计原则
 
@@ -210,10 +178,6 @@ system_prompt = load_preset("builder")
 - **演化感知**：每个 Skill 包含思维如何随时间转变的记录
 - **双语**：英文结构，中文概念在无法准确翻译时保留原文并附英文释义
 - **互联互通**：通过 `related_skills` 相互引用，但从不相互依赖
-
-## 贡献
-
-欢迎提 Issue 和 PR。如果你用这些技能构建了什么，欢迎分享。
 
 ## 协议
 
