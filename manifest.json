@@ -1,0 +1,122 @@
+{
+  "version": "1.0.0",
+  "name": "yak-soul-skills",
+  "author": "cubxxw",
+  "description": "Personal thinking frameworks and cognitive tools extracted from 13 months of structured self-observation (3580+ thinking chunks). Load individual skills or curated presets to gain access to tested methods for product building, self-modeling, meaning-making, cross-cultural analysis, and navigating life's core tensions.",
+  "source": "https://github.com/cubxxw/my-soul-skills",
+  "lang": "zh-CN/en",
+  "skills": [
+    {
+      "name": "meta-soul",
+      "path": "meta-soul/SKILL.md",
+      "category": "meta",
+      "description": "Full persona loader — a systematic sensory realist thinking partner with dual rational-emotional cores",
+      "tags": ["identity", "persona", "worldview", "thinking-partner"]
+    },
+    {
+      "name": "self_modeling",
+      "path": "framework-self_modeling/SKILL.md",
+      "category": "framework",
+      "description": "Identity as construction — treat the self as a designable, maintainable, versionable system",
+      "tags": ["identity", "cognition", "self-awareness", "construction"]
+    },
+    {
+      "name": "lean_product",
+      "path": "framework-lean_product/SKILL.md",
+      "category": "framework",
+      "description": "Indie dev methodology — MVP validation, scene verification, minimum action units",
+      "tags": ["product", "MVP", "validation", "indie-dev", "iteration"]
+    },
+    {
+      "name": "ai_native_workflow",
+      "path": "framework-ai_native_workflow/SKILL.md",
+      "category": "framework",
+      "description": "AI as infrastructure — agent loops, context management, MCP protocol, local-first design",
+      "tags": ["AI", "agent", "workflow", "context", "MCP"]
+    },
+    {
+      "name": "meaning_architecture",
+      "path": "framework-meaning_architecture/SKILL.md",
+      "category": "framework",
+      "description": "Meaning-making through narrative, desire types, growth equations, and the creator perspective",
+      "tags": ["meaning", "growth", "creation", "narrative", "existence"]
+    },
+    {
+      "name": "nomadic_cognition",
+      "path": "framework-nomadic_cognition/SKILL.md",
+      "category": "framework",
+      "description": "Travel and space as cognitive tools — environment-thinking mapping, emotion regulation through movement",
+      "tags": ["travel", "space", "cognition", "nomadic", "environment"]
+    },
+    {
+      "name": "comparative_culture",
+      "path": "framework-comparative_culture/SKILL.md",
+      "category": "framework",
+      "description": "Civilizational analysis through infrastructure, psychological cages, and cultural dimensions",
+      "tags": ["culture", "civilization", "China", "Japan", "comparison"]
+    },
+    {
+      "name": "cognitive_evolution",
+      "path": "framework-cognitive_evolution/SKILL.md",
+      "category": "framework",
+      "description": "Meta-method for tracking how thinking changes — paradigm shift documentation and concept networks",
+      "tags": ["meta-cognition", "evolution", "documentation", "knowledge-management"]
+    },
+    {
+      "name": "authenticity_performance",
+      "path": "tension-authenticity_performance/SKILL.md",
+      "category": "tension",
+      "description": "Navigate truth vs. social performance — identify which performances drain vs. sustain",
+      "tags": ["authenticity", "performance", "truth", "social", "sensitivity"]
+    },
+    {
+      "name": "freedom_order",
+      "path": "tension-freedom_order/SKILL.md",
+      "category": "tension",
+      "description": "Balance freedom and structure as a design problem — high autonomy, low chaos",
+      "tags": ["freedom", "order", "structure", "control", "design"]
+    },
+    {
+      "name": "relationship_boundaries",
+      "path": "tension-relationship_boundaries/SKILL.md",
+      "category": "tension",
+      "description": "Dynamic boundary negotiation — sacrifice vs. co-creation, love vs. relationship, acceptance vs. tolerance",
+      "tags": ["relationships", "boundaries", "intimacy", "love", "attachment"]
+    },
+    {
+      "name": "systematization_experience",
+      "path": "tension-systematization_experience/SKILL.md",
+      "category": "tension",
+      "description": "Recognize when system-building becomes defense — balance logic core and sensitivity core",
+      "tags": ["systems-thinking", "experience", "rationality", "defense-mechanism"]
+    }
+  ],
+  "load_presets": {
+    "all": [
+      "meta-soul", "self_modeling", "lean_product", "ai_native_workflow",
+      "meaning_architecture", "nomadic_cognition", "comparative_culture",
+      "cognitive_evolution", "authenticity_performance", "freedom_order",
+      "relationship_boundaries", "systematization_experience"
+    ],
+    "builder": {
+      "description": "For product builders and indie developers",
+      "skills": ["lean_product", "ai_native_workflow", "systematization_experience"]
+    },
+    "philosopher": {
+      "description": "For deep self-reflection and meaning-making",
+      "skills": ["meta-soul", "self_modeling", "meaning_architecture", "authenticity_performance"]
+    },
+    "traveler": {
+      "description": "For nomadic life design and cross-cultural understanding",
+      "skills": ["nomadic_cognition", "comparative_culture", "freedom_order"]
+    },
+    "relationship": {
+      "description": "For navigating intimacy, boundaries, and social dynamics",
+      "skills": ["relationship_boundaries", "authenticity_performance", "self_modeling"]
+    },
+    "knowledge_engineer": {
+      "description": "For building personal knowledge systems and tracking cognitive growth",
+      "skills": ["cognitive_evolution", "self_modeling", "systematization_experience"]
+    }
+  }
+}

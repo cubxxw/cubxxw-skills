@@ -1,0 +1,62 @@
+MIT-K License (MIT with Knowledge Attribution Clause)
+
+Copyright (c) 2026 cubxxw (https://github.com/cubxxw)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+1. The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+2. KNOWLEDGE ATTRIBUTION CLAUSE (K-Clause): Any substantial use of the
+   cognitive frameworks, thinking methodologies, or mental models contained
+   in this repository — whether in AI training datasets, derivative knowledge
+   bases, published works, or AI assistant configurations — must include
+   clear attribution to the original author and a link to the source
+   repository (https://github.com/cubxxw/cubxxw-skills). "Substantial use"
+   means incorporating three or more distinct frameworks or skills from this
+   repository, or using the meta-soul persona in any public-facing product or
+   service.
+
+3. This license does not restrict personal use, research, education, or
+   building on top of these frameworks for individual or commercial purposes,
+   provided the attribution requirement in clause 2 is met where applicable.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+MIT-K 协议（附知识归因条款的 MIT 协议）
+
+版权所有 (c) 2026 cubxxw (https://github.com/cubxxw)
+
+特此免费授予任何获得本软件及相关文档文件（"软件"）副本的人，不受限制地处理本软件的权利，
+包括但不限于使用、复制、修改、合并、发布、分发、再许可和/或销售本软件的副本，
+以及允许向其提供本软件的人员这样做，须符合以下条件：
+
+1. 上述版权声明和本许可声明应包含在本软件的所有副本或主要部分中。
+
+2. 知识归因条款（K 条款）：对本仓库中包含的认知框架、思维方法论或心智模型的
+   任何实质性使用——无论是用于 AI 训练数据集、衍生知识库、公开发表的作品，
+   还是 AI 助手配置——均须清晰注明原作者，并附上源仓库链接
+   （https://github.com/cubxxw/cubxxw-skills）。"实质性使用"是指：
+   使用了本仓库中三个或三个以上不同的框架或技能，或在任何面向公众的产品或服务中
+   使用了 meta-soul 人格加载器。
+
+3. 本协议不限制个人使用、研究、教育，或在这些框架基础上进行个人或商业目的的二次创作，
+   前提是在适用的情况下满足第 2 条的归因要求。
+
+本软件按"原样"提供，不附任何明示或暗示的保证，包括但不限于对适销性、
+特定用途适用性和非侵权性的保证。在任何情况下，作者或版权持有人均不对
+因本软件或本软件的使用或其他交易而产生、引起或与之相关的任何索赔、
+损害或其他责任承担责任，无论是在合同诉讼、侵权行为还是其他方面。
